@@ -2,11 +2,11 @@
 Business logic for simplified elevator model in python
 
 ## Setup
-### Prerequisites
+### 1. Prerequisites
 - conda 
 - postgresql (to quickly setup a could instance you can use [railway.app](https://www.railway.app))
 
-### Virtual environment
+### 2. Virtual environment
 1. To create a virtual environment using python 3.10.0 type:
 ```
 conda create -n elevator python=3.10.0
@@ -22,7 +22,7 @@ proceed ([y]/n)?
 conda activate elevator
 ```
 
-### Packages
+### 3. Packages
 once you have have your virtual environment setup it's time to install the required packages. 
 
 1. Copy & paste the following in your terminal:
@@ -32,11 +32,11 @@ once you have have your virtual environment setup it's time to install the requi
 
 2. Enter `conda list` in your terminal, you should see packages from above in the list, else repeat the above step.
 
-### Postgres
+### 4. Postgres
 As we are using postgres to store our data it is necessary to change the default `sqlite` database that django provides.
 1. Go to `elevator/settings.py` file and enter your postgres db credentials:
 
-#### Before
+#### 4.1 Before
  ```
   DATABASES = {
     "default": {
@@ -45,7 +45,7 @@ As we are using postgres to store our data it is necessary to change the default
     }
 } 
 ``` 
-#### After
+#### 4.2 After
 Replace the detail below with your db credentials:
 ```
 DATABASES = {
@@ -59,6 +59,7 @@ DATABASES = {
     }
 } 
 ```
+Read more about databases [here.](https://docs.djangoproject.com/en/4.0/ref/settings/#databases)
 
 ## Running the app
 To run your django application enter the following in your terminal
@@ -66,4 +67,11 @@ To run your django application enter the following in your terminal
 python manage.py runserver
 ```
 
-🎉Congratulations your application is ready to perform some queries🎉
+🎉 Congratulations your application is ready 🎉
+
+
+## API List
+- GET- **/requests** (Gets all pending requests)
+- POST- **/requests** (Creates a request)
+- GET - **/destination?elevator_id=2** (Gets destination of the elevator if travelling else null)
+- POST - **/init** (Initializes the elevator system)
