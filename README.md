@@ -1,6 +1,8 @@
 # elevator-project
 Business logic for simplified elevator model in python
 
+Link to api schema : [click here](https://drive.google.com/file/d/1XdEm5X14n6paL_Vwi-Q-EhUuE162LmoY/view?usp=sharing)
+
 ## Setup
 ### 1. Prerequisites
 - conda 
@@ -71,7 +73,24 @@ python manage.py runserver
 
 
 ## API List
-- GET- **/requests** (Gets all pending requests)
-- POST- **/requests** (Creates a request)
-- GET - **/destination?elevator_id=2** (Gets destination of the elevator if travelling else null)
-- POST - **/init** (Initializes the elevator system)
+- POST - /init
+Description - Initialises the elevator system
+
+- POST - /requests/
+Description - Creates a new request
+Assigns the elevator which is nearest to the requested_floor which is in an idle state
+
+- GET - /requests/
+Description - Fetches all pending requests
+
+- GET - /destination?elevator_id=1
+Description - Fetch the destination of an elevator, null if the elevator is not involved in any requests
+
+- GET - /current-status
+Description - Fetch the current status of all the working elevators
+
+- PUT - /current-status?elevator_id=1
+Description - Update the status of an elevator to maintenance or working
+
+- PUT - /door?elevator_id=1
+Description - Open or close the door of an elevator
