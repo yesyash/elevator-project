@@ -1,0 +1,1 @@
+web: gunicorn elevators.wsgi --log-file -
